@@ -32,14 +32,13 @@ body {
 
 h1,
 h2,
-h3,
-.header-badge {
+h3 {
   font-family: "Roboto", sans-serif;
 }
 
 /* Header Section */
 header {
-  background: linear-gradient(135deg, #171717 0%, #202124 100%);
+  background-color: #202124;
   border-bottom: 4px solid var(--google-blue);
   color: white;
   text-align: center;
@@ -61,25 +60,18 @@ header p {
   color: var(--text-muted);
   font-weight: 300;
 }
-/*add*/
+
 .corner-img {
   position: absolute;
-  width: 12vw;    /* adjust size */
+  width: 12vw;    
   max-width: 20vw;
   height: auto;
   z-index: 10;
-  pointer-events: none; /* so it doesn't block clicking */
-  opacity: 0;
+  pointer-events: none; 
+  opacity: 1;
   transform: scale(0.9);
-  animation: pop 0.4s forwards ease;
 }
 
-@keyframes pop {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 /* Left corner */
 .corner-img.left {
   top: 50px;
@@ -89,34 +81,6 @@ header p {
 .corner-img.right {
   top: 50px;
   right: 50px;
-}
-
-
-/* Badges */
-.header-badge {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--bg-card);
-  border: 1px solid var(--google-green);
-  color: var(--google-green);
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.header-badge::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: var(--google-green);
-  border-radius: 50%;
 }
 
 /* Social Links */
@@ -133,7 +97,6 @@ header p {
   padding: 10px 24px;
   text-decoration: none;
   border-radius: 50px;
-  transition: all 0.3s ease;
   border: 1px solid var(--border-color);
   font-weight: 500;
   display: flex;
@@ -145,7 +108,6 @@ header p {
   border-color: var(--google-blue);
   background-color: rgba(66, 133, 244, 0.1);
   color: var(--google-blue);
-  transform: translateY(-2px);
 }
 
 /* Main Content Container */
@@ -186,13 +148,7 @@ section h2::after {
   width: 60px;
   height: 4px;
   border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--google-blue),
-    var(--google-red),
-    var(--google-yellow),
-    var(--google-green)
-  );
+  background-color: var(--google-blue);
 }
 
 /* About Section */
@@ -204,25 +160,11 @@ section h2::after {
 
 /* Sparky Mascot Styling */
 .about-image {
-  flex: 0 0 180px;
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  /* The Google 4-color border */
-  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-    linear-gradient(
-        45deg,
-        var(--google-blue),
-        var(--google-red),
-        var(--google-yellow),
-        var(--google-green)
-      )
-      border-box;
-  border: 4px solid transparent;
+  border: 4px solid var(--google-blue);
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #fff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
@@ -230,13 +172,13 @@ section h2::after {
 .about-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s ease;
   padding: 5px;
 }
 
 .about-image:hover img {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1);
 }
 
 .about-text {
@@ -261,7 +203,6 @@ section h2::after {
   padding: 25px;
   border-radius: 12px;
   text-align: left;
-  transition: all 0.3s ease;
   border-top: 4px solid var(--google-blue);
   position: relative;
   overflow: hidden;
@@ -291,6 +232,7 @@ section h2::after {
   transform: translateY(-5px);
   background-color: #45474a;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .skill-item h3 {
@@ -365,108 +307,6 @@ section h2::after {
   color: var(--google-green);
 }
 
-.project-links {
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
-}
-
-.project-link {
-  font-size: 0.9em;
-  color: var(--text-muted);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--text-muted);
-}
-.project-link:hover {
-  color: white;
-  border-bottom-style: solid;
-}
-
-/* Interests List */
-.interests-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.interests-list li {
-  background-color: var(--bg-card-hover);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-size: 0.95em;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-}
-
-.interests-list li:hover {
-  background-color: var(--google-blue);
-  border-color: var(--google-blue);
-  color: white;
-}
-
-.new-badge {
-  margin-left: 8px;
-  background-color: var(--google-red);
-  color: white;
-  font-size: 0.6em;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-weight: bold;
-  vertical-align: middle;
-}
-
-/* Contact Section */
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background-color: var(--bg-card-hover);
-  border-radius: 12px;
-  border: 1px solid transparent;
-  transition: all 0.3s;
-}
-
-.contact-item:hover {
-  border-color: var(--google-blue);
-  background-color: #3f4246;
-}
-
-.contact-icon {
-  width: 48px;
-  height: 48px;
-  background-color: rgba(66, 133, 244, 0.1);
-  color: var(--google-blue);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4em;
-}
-
-.contact-item a {
-  color: var(--text-main);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1em;
-}
-
-.contact-item a:hover {
-  color: var(--google-blue);
-}
-
 /* Footer */
 footer {
   background-color: #171717;
@@ -475,14 +315,6 @@ footer {
   text-align: center;
   padding: 40px 20px;
   margin-top: 60px;
-}
-
-footer a {
-  color: var(--text-muted);
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
 }
 
 /* Back to Top Button */
@@ -506,40 +338,6 @@ footer a:hover {
 }
 
 .back-to-top:hover {
-  transform: translateY(-5px);
   background-color: var(--google-red);
   box-shadow: 0 6px 16px rgba(234, 67, 53, 0.4);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2.5em;
-  }
-  header p {
-    font-size: 1.1em;
-  }
-  section {
-    padding: 25px 20px;
-    margin: 20px 10px;
-  }
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .header-badge {
-    position: static;
-    display: inline-flex;
-    margin-bottom: 10px;
-  }
-  .header-notification {
-    position: static;
-    display: inline-block;
-    margin-bottom: 20px;
-  }
-  .about-image {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
-  }
 }
